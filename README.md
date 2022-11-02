@@ -1,3 +1,5 @@
+This project uses https://openchargemap.org/site/ api to show the car charging points nearby
+
 # To run the project
 
 to start the app, please run following commands

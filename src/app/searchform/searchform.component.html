@@ -1,7 +1,7 @@
 <div>
-  <label for="city">Enter you city: </label>
-  <input id="city" type="text" [formControl]="city">
-  <button type="button" (click)="updateCity()">Find</button>
+  <label for="cityinput">Enter you city: </label>
+  <input id="item-cityinput" disabled type="text" value="Toronto" #cityItem>
+  <button type="button" disabled (click)="updateCity(cityItem.value)">Find City</button>
   or
   <button type="button" (click)="getUserLocation()">Get My location</button>
 </div>

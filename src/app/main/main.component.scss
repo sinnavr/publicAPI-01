@@ -1,0 +1,21 @@
+.page {
+  display: flex;
+  height: calc( 100vh - 20px);
+}
+
+.listsidebar
+{
+  width:20%;
+  height:80%;
+  overflow-y: auto;
+  min-height: 100px;
+}
+.contentContainer{
+  flex: 1 0 auto;
+}
+.smalltext{
+  font-size: 11px;
+}
+.hidden{
+  display:none;
+}

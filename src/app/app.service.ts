@@ -32,9 +32,19 @@ export class AppService {
   getlist() {
     return this.http.get<any>(this.rootURL + 'poi', {headers: this.headers});
   }
-
-  getlistofchargerNearby() {
-    return this.http.get<any>(this.rootURL + 'poi', {headers: this.headers}).pipe(retry(2), catchError(this.handleError));
+  getCityLatLong(cityName:string) {
+    return this.http.get<any>(this.rootURL + 'poi',
+    {headers: this.headers}).pipe(retry(2), catchError(this.handleError));
   }
 
+  getlistofchargerNearby() {
+    return this.http.get<any>(this.rootURL + 'poi',
+    {headers: this.headers}).pipe(retry(2), catchError(this.handleError));
+  }
+
+  getlistofchargerNearbyLatLong(lat:string, long:string) {
+    return this.http.get<any>(this.rootURL + 'poi?output=json&includecomments=true&maxresults=100&compact=true&boundingbox='+
+              '('+lat+','+long+'),('+(parseFloat(lat)+0.0121366971014)+','+(parseFloat(long)+0.03733149060304)+')',
+    {headers: this.headers}).pipe(retry(2), catchError(this.handleError));
+  }
 }

@@ -11,6 +11,8 @@ export class MainComponent implements OnInit {
 
   service:AppService
   listofPlaces : any = []
+  filteredlistofPlaces : any = []
+  filterCityName: string =''
 
   constructor(appService:AppService) {
     this.service = appService;
@@ -26,4 +28,30 @@ export class MainComponent implements OnInit {
     });
 
   }
+
+  showOnDetails(place:any){
+
+  }
+
+  filterCityItem(cityName:string){
+    this.filterCityName = cityName
+
+    const latlong = cityName.split(",");
+    this.listofPlaces= []
+    this.service.getlistofchargerNearbyLatLong(latlong[0], latlong[1]).subscribe(data => {
+      this.listofPlaces = data;
+      });
+
+
+    console.log("text received "+ cityName)
+    // const filterList = this.listofPlaces.filter((item: { AddressInfo: { Town: string; }; })=>{
+    //     return item.AddressInfo.Town!= null
+    // });
+    // console.log("unfiltered list")
+    // console.log( this.listofPlaces)
+    // console.log("filtered list")
+    // console.log(filterList)
+    // this.filteredlistofPlaces = filterList;
+  }
+
 }

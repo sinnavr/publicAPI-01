@@ -1,22 +1,33 @@
-<mat-spinner *ngIf="listofPlaces.length === 0"></mat-spinner>
+<div>
+  <div>
+    <app-searchform (messageEvent)="filterCityItem($event)"></app-searchform>
+    {{filterCityName}}
+  </div>
 
-<mat-card *ngFor="let place of listofPlaces" style="margin-top:11px;">
-  <mat-card-header>
-      <mat-card-title>{{place.ID}}</mat-card-title>
-      <mat-card-subtitle>Last verified: {{place.DateLastVerified}}
-      </mat-card-subtitle>
-      <mat-card-subtitle>{{place.AddressInfo.Latitude}}, {{place.AddressInfo.Longitude}}
-      </mat-card-subtitle>
-      <mat-card-subtitle>
-        {{place.AddressInfo.Town}}
-      </mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-      <p>
-         Operational: {{place.StatusType.IsOperational}}
-      </p>
-  </mat-card-content>
-  <mat-card-actions>
-<button mat-button> Show on Map</button>
-</mat-card-actions>
-</mat-card>
+<div class="page">
+  <div class="listsidebar">
+  <mat-spinner *ngIf="listofPlaces.length === 0"></mat-spinner>
+  <mat-nav-list>
+    <mat-list-item *ngFor="let place of listofPlaces">
+      <div>
+        <span>{{place.AddressInfo.Title}}</span>
+        <br>
+        <span class="smalltext hidden">{{place.AddressInfo.Latitude}}, {{place.AddressInfo.Longitude}}
+          </span>
+          <span> {{place.AddressInfo.Town}}</span>
+      </div>
+       <button mat-icon-button (click)="showOnDetails(place)">
+          <mat-icon>location_on</mat-icon>
+       </button>
+    </mat-list-item>
+  </mat-nav-list>
+
+  </div>
+
+<div class="mapcontainer">
+  <app-details></app-details>
+</div>
+
+</div>
+
+</div>

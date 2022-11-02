@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -8,14 +8,14 @@ import { FormControl } from '@angular/forms';
 })
 export class SearchformComponent implements OnInit {
 
-  city = new FormControl('');
+  @Output() messageEvent = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  updateCity() {
-    this.city.setValue('Toronto');
+  updateCity(cityName:string) {
+    this.messageEvent.emit(cityName)
   }
 
   getUserLocation(){
@@ -23,7 +23,8 @@ export class SearchformComponent implements OnInit {
         navigator.geolocation.getCurrentPosition((position)=>{
           const long = position.coords.longitude;
           const lat = position.coords.latitude;
-          console.log(long, lat);
+          console.log(lat,long);
+          this.messageEvent.emit(lat+","+long)
         });
     } else {
        console.log("No support for geolocation")

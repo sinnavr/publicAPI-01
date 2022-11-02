@@ -19,12 +19,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchformComponent } from './searchform/searchform.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    SearchformComponent
+    SearchformComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

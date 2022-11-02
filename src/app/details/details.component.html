@@ -1,1 +1,17 @@
-<p>details works!</p>
+<div class="container">
+  <div *ngIf="selectedCharger">
+    <p> {{selectedCharger?.AddressInfo?.Title}}</p>
+    <h2  *ngIf="selectedCharger?.NumberOfPoints">Number of charging points {{selectedCharger?.NumberOfPoints}}</h2>
+    <p *ngIf="selectedCharger?.DateLastStatusUpdate">Last updated: {{selectedCharger?.DateLastStatusUpdate}}</p>
+    <p>
+      {{selectedCharger?.AddressInfo?.AddressLine1}}
+      {{selectedCharger?.AddressInfo?.Postcode}}
+      {{selectedCharger?.AddressInfo?.Town}}
+    </p>
+    <p  *ngIf="selectedCharger?.GeneralComments" >comments : {{selectedCharger?.GeneralComments}}</p>
+  </div>
+
+  <div *ngIf="!selectedCharger">
+      Please select a location to view details
+    </div>
+</div>

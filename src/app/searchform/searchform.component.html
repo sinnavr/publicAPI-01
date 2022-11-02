@@ -3,6 +3,6 @@
   <input id="item-cityinput" disabled type="text" value="Toronto" #cityItem>
   <button type="button" disabled (click)="updateCity(cityItem.value)">Find City</button>
   or
-  <button type="button" (click)="getUserLocation()">Get My location</button>
+  <button mat-raised-button color="primary" (click)="getUserLocation()">Get My location <mat-icon>location_on</mat-icon></button>
 </div>
 

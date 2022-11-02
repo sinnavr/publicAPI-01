@@ -9,15 +9,15 @@
   <mat-spinner *ngIf="listofPlaces.length === 0"></mat-spinner>
   <mat-nav-list>
     <mat-list-item *ngFor="let place of listofPlaces">
-      <div>
+      <div >
         <span>{{place.AddressInfo.Title}}</span>
         <br>
         <span class="smalltext hidden">{{place.AddressInfo.Latitude}}, {{place.AddressInfo.Longitude}}
           </span>
           <span> {{place.AddressInfo.Town}}</span>
       </div>
-       <button mat-icon-button (click)="showOnDetails(place)">
-          <mat-icon>location_on</mat-icon>
+       <button mat-icon-button (click)="showOnDetails(place)"  color="accent" class="rightalign">
+          details
        </button>
     </mat-list-item>
   </mat-nav-list>
@@ -25,7 +25,7 @@
   </div>
 
 <div class="mapcontainer">
-  <app-details></app-details>
+  <app-details [selectedCharger]=selectedChargerloc></app-details>
 </div>
 
 </div>

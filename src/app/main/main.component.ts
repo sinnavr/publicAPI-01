@@ -13,6 +13,7 @@ export class MainComponent implements OnInit {
   listofPlaces : any = []
   filteredlistofPlaces : any = []
   filterCityName: string =''
+  selectedChargerloc:any
 
   constructor(appService:AppService) {
     this.service = appService;
@@ -30,7 +31,7 @@ export class MainComponent implements OnInit {
   }
 
   showOnDetails(place:any){
-
+    this.selectedChargerloc = place;
   }
 
   filterCityItem(cityName:string){

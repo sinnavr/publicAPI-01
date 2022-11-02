@@ -1,7 +1,14 @@
 <div>
   <label for="cityinput">Enter you city: </label>
-  <input id="item-cityinput" disabled type="text" value="Toronto" #cityItem>
-  <button type="button" disabled (click)="updateCity(cityItem.value)">Find City</button>
+  <mat-form-field appearance="fill">
+    <mat-label>Search City</mat-label>
+    <mat-select [(ngModel)]="selectedCity" >
+      <mat-option *ngFor="let city of cities" [value]="city.value">
+        {{city.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button  mat-raised-button color="primary"  type="button" (click)="updateCity(selectedCity)">Search</button>
   or
   <button mat-raised-button color="primary" (click)="getUserLocation()">Get My location <mat-icon>location_on</mat-icon></button>
 </div>

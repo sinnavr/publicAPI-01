@@ -29,9 +29,6 @@ export class AppService {
     return throwError(() =>errorMessage);
   }
 
-  getlist() {
-    return this.http.get<any>(this.rootURL + 'poi', {headers: this.headers});
-  }
   getCityLatLong(cityName:string) {
     return this.http.get<any>(this.rootURL + 'poi',
     {headers: this.headers}).pipe(retry(2), catchError(this.handleError));

@@ -15,11 +15,13 @@ import {MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSelectModule} from '@angular/material/select';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchformComponent } from './searchform/searchform.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { DetailsComponent } from './details/details.component';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatSelectModule,
+    FormsModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     ReactiveFormsModule

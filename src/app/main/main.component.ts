@@ -36,15 +36,15 @@ export class MainComponent implements OnInit {
 
   filterCityItem(cityName:string){
     this.filterCityName = cityName
+    if(cityName.includes(",")){
+      const latlong = cityName.split(",");
+      this.listofPlaces= []
+      this.service.getlistofchargerNearbyLatLong(latlong[0], latlong[1]).subscribe(data => {
+        this.listofPlaces = data;
+        });
 
-    const latlong = cityName.split(",");
-    this.listofPlaces= []
-    this.service.getlistofchargerNearbyLatLong(latlong[0], latlong[1]).subscribe(data => {
-      this.listofPlaces = data;
-      });
-
-
-    console.log("text received "+ cityName)
+      console.log("text received "+ cityName)
+    }
     // const filterList = this.listofPlaces.filter((item: { AddressInfo: { Town: string; }; })=>{
     //     return item.AddressInfo.Town!= null
     // });

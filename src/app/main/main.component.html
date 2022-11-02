@@ -1,0 +1,22 @@
+<mat-spinner *ngIf="listofPlaces.length === 0"></mat-spinner>
+
+<mat-card *ngFor="let place of listofPlaces" style="margin-top:11px;">
+  <mat-card-header>
+      <mat-card-title>{{place.ID}}</mat-card-title>
+      <mat-card-subtitle>Last verified: {{place.DateLastVerified}}
+      </mat-card-subtitle>
+      <mat-card-subtitle>{{place.AddressInfo.Latitude}}, {{place.AddressInfo.Longitude}}
+      </mat-card-subtitle>
+      <mat-card-subtitle>
+        {{place.AddressInfo.Town}}
+      </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+      <p>
+         Operational: {{place.StatusType.IsOperational}}
+      </p>
+  </mat-card-content>
+  <mat-card-actions>
+<button mat-button> Show on Map</button>
+</mat-card-actions>
+</mat-card>

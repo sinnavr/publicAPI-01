@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiroot: 'https://api.openchargemap.io/v3/',
+  apikey: 'cbe5b64f-a274-4cd3-afdb-c2873c52812d'
 };
 
 /*
